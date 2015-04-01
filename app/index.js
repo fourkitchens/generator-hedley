@@ -274,11 +274,8 @@ module.exports = yeoman.generators.Base.extend({
       this.log('bower install');
       this.bowerInstall(null, {cwd: 'client'});
 
-      this.log('npm install (angular)');
-      this.npmInstall(null, {cwd: 'client'});
-
-      this.log('npm install (phantomcss)');
-      this.npmInstall(null, {cwd: 'phantomcss'});
+      this.log('npm install angularjs-server phantomcss angular');
+      this.npmInstall(['angularjs-server', 'angular', 'phantomcss'], {cwd: 'client'});
 
       this.log('Composer install');
       this.spawnCommand('composer', ['install'], {cwd: './behat'});
